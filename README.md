@@ -3,6 +3,9 @@
 ## Introduction
 This home lab will incorporate Wazuh as the EDR inspecting packets that are deployed on agents
 
+<img width="1040" height="336" alt="image" src="https://github.com/user-attachments/assets/1ae6cc24-d7a8-48f6-ad39-50e27418857b" />
+
+
 
 ### Objective
 
@@ -25,8 +28,9 @@ The Wazuh EDR Project aimed to be a central hub for different machines being man
 ### Tools Used
 
 - Wazuh EDR Installed on host machine that will be the monitor for seperate deployed agent machines
-- Kali Linux
-- two seperate VMs of Ubuntu
+- Kali Linux (Attacking machine)
+- Ubuntu (Wazuh Server)
+- Windows (Victim machine)
 
 ## Getting Started
 
@@ -60,6 +64,21 @@ Once the packages have finished installing you need to start the agent and manag
 Open firefox and input the IP of the host machine with the command (ip a). Next, you will be prompted to enter the username and password that was just provided to you in the terminal
 
 <img width="1851" height="942" alt="EDR_dashboard" src="https://github.com/user-attachments/assets/c992f753-84e2-47a0-87a4-3aa54e79285a" />
+
+
+### Create Nmap Rule
+You can generate a nmap rule from chatgpt to give out a template(You need to make sure to map the if_sid code to match local wazuh rule creation number)
+
+<img width="1793" height="817" alt="nmap_rule" src="https://github.com/user-attachments/assets/17035d71-4a8f-4f54-b807-27fefd3018a3" />
+
+## Start the Attack
+1. Use the command nmap -A 10.0.2.15 (Victim agent)
+2. Sysmon picks up/configures a log to send to Wazuh
+
+
+<img width="853" height="120" alt="image" src="https://github.com/user-attachments/assets/7687f154-d9c4-47f0-8ed6-85e70a620d27" />
+
+
 
 
 
